@@ -131,7 +131,8 @@ class Exporter:
         export_path = export_settings["export_path"]
         settings = self.storage.get("settings.json")
         if settings:
-            wechat_execute = os.path.join(settings["wechat_execute"], "cli.bat")
+            #wechat_execute = os.path.join(settings["wechat_execute"], "cli.bat")
+            wechat_execute = settings["wechat_execute"]
             result = subprocess.run([wechat_execute, "open", "--project", export_path])
             print(result)
 

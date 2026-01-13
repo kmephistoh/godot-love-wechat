@@ -1,9 +1,11 @@
 import os
 import json
+from platformdirs import user_data_dir
 
 class Storge:
     def __init__(self) -> None:
-        self.path = os.path.join(os.environ['LOCALAPPDATA'], 'godot-love-wechat')
+        self.path = user_data_dir("godot-love-wechat")
+        os.makedirs(self.path, exist_ok=True)
 
     def save(self, file, data):
         print(self.path)
